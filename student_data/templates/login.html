@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} Login Page{% endblock %}
+
+{% block content %}
+
+<div class = "container mt-5 ">
+
+    <form class="col-6  mx-auto card p-3 shadow" method = "POST" >  
+        {% csrf_token %}
+        <h2>Login</h2>
+
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          </div>
+
+{% endif %}
+        
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" class="form-control" name = "username" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            
+            <div class="form-group mt-3">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name = "password" id="exampleInputPassword1" required >
+            </div>
+            
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+            <p>don't have an account? <a href = "/register/"> Sign Up </a>
+        
+        
+        
+  </form> 
+
+ 
+{%endblock%}

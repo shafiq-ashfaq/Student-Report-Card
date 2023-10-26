@@ -1,0 +1,59 @@
+<!-- about.html -->
+{% extends "base.html" %}
+
+{% block title %} Student Report Card{% endblock %}
+
+{% block content %}
+<h1 class="center-heading mt-3"> Student Report Card</h1>
+
+<div class = "container mt-5">
+   <h4> Name : {{queryset.0.student}} </h4>    
+   <h4> Student ID : {{queryset.0.student.student_id}} </h4>    
+</div>
+
+
+<div class="container mt-3">
+       
+<table class="table table-striped">
+        
+      <tr>
+        <th colspan = "6" style="text-align: center;"><h1> Student Marks </h1></th> 
+        
+      </tr>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Subject Name</th>
+        <th scope="col">Subject Marks</th>
+       
+      </tr>
+    
+    </thead>
+    <tbody>
+        {% for marks in queryset %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td><b>{{marks.subject}}</b></td> 
+           <td> <b>{{marks.marks}} </b></td> 
+           <tr>
+              
+          </tr>
+          
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>Total = {{total_marks.total}}</b></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b> percentage = {{percentage}}%</b></td>
+          </tr>
+          </tbody>
+          </table>
+        </div> 
+ 
+
+
+
+{% endblock %}
