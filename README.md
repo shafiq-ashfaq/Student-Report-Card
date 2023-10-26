@@ -1,2 +1,3 @@
 # Student-Report-Card
-Create a student report card 
+Create Student data table and generate report card on the basis of studentID
+
